@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jumbotron Template for Bootstrap</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> <!--Optional if we use CDN, like below -->
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+<!-- Navbar start -->
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="#">Project name</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <% if (!user) { %>
+      <li><a class="dropdown-toggle" data-toggle="dropdown" href="#">Signup / Login </a>
+        <ul class="dropdown-menu">
+          <li><a href="/signup">Signup</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </li>
+
+      <% } else { %>
+
+      <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= user.profile.name %></a>
+        <ul class="dropdown-menu">
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/logout">Log out</a></li>
+        </ul>
+      </li>
+
+      <% } %>
+
+    </ul>
+
+
+  </div>
+</nav>
+
+<!-- END -->
+
+
+
+    <%- body -%>
+
+     <!-- /container -->
+
+<% include ./partials/footer %>
+<% include ./partials/javascriptFiles %>
+
+
+
+  </body>
+</html>
