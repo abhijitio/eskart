@@ -15,4 +15,18 @@ router.get ('/about', function(req, res){
 });
 
 
+router.get ('/products/:id', function(req, res, next){
+    Product
+        .find({category: req.params.id})
+        .populate('category')
+        .exec(function(err, products){
+            if (err) return next(err);
+            res.render('main/category',{
+                products: products
+            });
+        });
+
+});
+
+
 module.exports = router;
